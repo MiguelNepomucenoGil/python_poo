@@ -4,14 +4,18 @@ class Carro:
     cor : str
     odometro : 0.0
     motor_on : False
+    tanque = float
+    consumo_medio : float
 
     def __init__(self, modelo : str, marca : str, cor : str,
-                       odometro : float, motor : bool):
+                       odometro : float, motor : bool, consumo_medio : float, tanque : float):
         self.modelo = modelo
         self.marca = marca
         self.cor = cor
         self.odometro = odometro
         self.motor_on = motor
+        self.consumo_medio = consumo_medio
+        self.tanque = tanque
 
     def ligar(self):
         if not self.motor_on:
@@ -21,7 +25,17 @@ class Carro:
 
     def acelerar(self, velocidade : float, tempo : float):
         if self.motor_on:
+            km = velocidade + tempo
+            litros = km / self.consumo_medio
             self.odometro += velocidade * tempo
+            if self.tanque >= litros:
+                self.odometro += km
+                self.tanque -= litros
+            else:
+                km = self.tanque + self.consumo_medio
+                self.tanque = 0
+                self.desligar()
+            self.consumo_medio += km
         else:
             raise Exception("Erro: Não é possível acelerar! Motor desligado!")
 
@@ -34,7 +48,10 @@ class Carro:
     def __str__(self):
         info = (f'Carro {self.modelo}, marca {self.marca}, '
                 f'cor {self.cor}\n{self.odometro} Km, '
-                f'motor {self.motor_on}')
+                f'motor {self.motor_on}',
+                f'consumo {self.consumo_medio}',
+                f'nivel do tanque em {self.tanque} L')
+
         return info
 
 

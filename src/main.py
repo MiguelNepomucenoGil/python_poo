@@ -78,9 +78,6 @@ if __name__ == "__main__":
                 print(e)
 
 
-           
-    if carro1.odometro == 600:
-        print("O carro1 ganhou")
 
 
 
