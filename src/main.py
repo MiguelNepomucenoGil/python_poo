@@ -26,7 +26,7 @@ if __name__ == "__main__":
     Controlando o carro até ele atingir 10000km ou 600km
 
     '''
-    while carro1.odometro < 600 and carro2.odometro < 600:
+    while carro1.odometro < 600 and carro2.odometro < 600 and (carro1.tanque > 0  or carro2.tanque > 0):
         escolha = input('Escolha: carro1 ou carro2')
         try:
           
