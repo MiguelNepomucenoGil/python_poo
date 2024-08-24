@@ -29,48 +29,8 @@ if __name__ == "__main__":
     while carro1.odometro < 600 and carro2.odometro < 600 and (carro1.tanque > 0  or carro2.tanque > 0):
         escolha = input('Escolha: carro1 ou carro2')
         try:
-          
-            
-            if escolha == "carro1": 
-                print('1- Ligar motor')
-                print('2- Desligar motor')
-                print('3- Acelerar')
+          op = carro1
 
-                op = 0
-                while op not in (1,2,3):
-                    op = int(input("Digite as opcoes[1-3]: "))
-
-                if op == 1:
-                    carro1.ligar()
-                elif op == 2:
-                    carro1.desligar()
-                elif op == 3:
-                    v = float(input("Informe a velocidade: "))
-                    t = float(input("Informe o tempo: "))
-                    carro1.acelerar(v, t)
-                
-                if carro1 == 600:
-                    print("carro1 ganhou!")
-                elif carro2 == 600:
-                    print("carro2 ganhou!")
-
-            elif escolha == "carro2": 
-                print('1- Ligar motor')
-                print('2- Desligar motor')
-                print('3- Acelerar')
-
-                op = 0
-                while op not in (1,2,3):
-                    op = int(input("Digite as opcoes[1-3]: "))
-
-                if op == 1:
-                    carro2.ligar()
-                elif op == 2:
-                    carro2.desligar()
-                elif op == 3:
-                    v = float(input("Informe a velocidade: "))
-                    t = float(input("Informe o tempo: "))
-                    carro2.acelerar(v, t)
 
     
 
